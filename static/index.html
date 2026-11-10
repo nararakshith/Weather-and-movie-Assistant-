@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f9" />
+    <meta name="description" content="A friendly AI assistant for Indian city weather and Indian movie recommendations." />
+    <title>Prism — India weather & movies, made simple</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Chat sidebar">
+        <a class="brand" href="/" aria-label="Prism home">
+          <span class="brand-mark"><span></span><span></span><span></span><span></span></span>
+          <span>prism<span class="brand-period">.</span></span>
+        </a>
+
+        <button class="new-chat" id="new-chat" type="button"><span class="plus">+</span> New conversation <kbd>⌘ K</kbd></button>
+
+        <div class="side-label">YOUR ASSISTANT</div>
+        <div class="assistant-card">
+          <div class="assistant-icon">✳</div>
+          <div><strong>India weather & movies</strong><small>Weather, cinema & more</small></div>
+          <span class="online-dot" aria-label="Online"></span>
+        </div>
+
+        <div class="side-label quick-label">QUICK START</div>
+        <button class="side-prompt" data-prompt="What's the weather in Vizianagaram right now?" type="button"><span class="side-prompt-icon sun-icon">☼</span> Indian city weather</button>
+        <button class="side-prompt" data-prompt="Suggest some great comedy movies" type="button"><span class="side-prompt-icon film-icon">▣</span> Movie picks</button>
+
+        <div class="sidebar-bottom">
+          <div class="powered"><span class="powered-dot"></span> Powered by LangChain</div>
+          <div class="profile"><div class="avatar">P</div><div><strong>Prism Assistant</strong><small>Always here to help</small></div><span class="more">···</span></div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark"><span></span><span></span><span></span><span></span></span> prism<span class="brand-period">.</span></div>
+          <div class="topbar-context"><span class="context-icon">✳</span><span>India Weather & Movies Assistant</span><span class="context-chevron">/</span><span class="context-muted">New conversation</span></div>
+          <button class="help-button" type="button" title="About this assistant" aria-label="About this assistant">?</button>
+        </header>
+
+        <section class="chat-area" aria-label="Chat with Prism">
+          <div class="welcome" id="welcome">
+            <div class="welcome-orb"><span>✳</span></div>
+            <div class="eyebrow"><span class="live-dot"></span> INDIA WEATHER & MOVIES ASSISTANT</div>
+            <h1>A little more in the know.<br /><span>In a little less time.</span></h1>
+            <p>Check the weather in Indian cities or find your next favourite Indian movie. Just ask.</p>
+
+            <div class="suggestions">
+              <button class="suggestion-card" data-prompt="What's the weather in Vizianagaram right now?" type="button">
+                <span class="suggestion-icon weather-icon">☀</span><span class="suggestion-copy"><strong>Check Indian city weather</strong><small>“What's the weather in Vizianagaram?”</small></span><span class="card-arrow">↗</span>
+              </button>
+              <button class="suggestion-card" data-prompt="Suggest some great comedy movies" type="button">
+                <span class="suggestion-icon movie-icon">▶</span><span class="suggestion-copy"><strong>Find a movie</strong><small>“I’m in the mood for comedy”</small></span><span class="card-arrow">↗</span>
+              </button>
+            </div>
+          </div>
+          <div class="messages" id="messages" aria-live="polite" aria-label="Conversation"></div>
+        </section>
+
+        <div class="composer-wrap">
+          <form class="composer" id="chat-form">
+            <label class="sr-only" for="message-input">Your message</label>
+            <textarea id="message-input" rows="1" placeholder="Ask about weather or find a movie..." maxlength="1000"></textarea>
+            <div class="composer-footer"><span class="composer-note"><span>✳</span> Ask about Indian weather or Indian cinema</span><button class="send-button" id="send-button" type="submit" aria-label="Send message"><span>↑</span></button></div>
+          </form>
+          <div class="disclaimer">Prism can make mistakes. Check important details with an up-to-date source.</div>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
