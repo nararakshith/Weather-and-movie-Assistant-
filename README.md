@@ -19,6 +19,16 @@ A conversational assistant for current weather in Indian cities and Indian movie
 
 The website is served at `/`. The LangServe endpoint remains available at `/agent`.
 
+## Deploy to Render
+
+The repository includes `render.yaml` with the Python build command, Uvicorn start command, and `/health` check. Connect this repository to a Render Web Service (or use Render Blueprint) and add `GEMINI_API_KEY` in the service's Environment settings. Do not commit the secret.
+
+For a manually configured Web Service, use:
+
+- **Build command:** `pip install -r requirements.txt`
+- **Start command:** `uvicorn app:app --host 0.0.0.0 --port $PORT`
+- **Health check path:** `/health`
+
 ## Code layout
 
 - `assistant.py` defines the LangChain tools and chat agent.
