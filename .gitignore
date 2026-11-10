@@ -1,4 +1,5 @@
 .env
+.repo-sync/
 .venv/
 venv/
 __pycache__/
